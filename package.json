@@ -1,0 +1,29 @@
+{
+  "name": "todo-react",
+  "version": "1.0.0",
+  "description": "Todo app for React hands on",
+  "main": "./app/script/app.jsx",
+  "scripts": {
+    "dev": "webpack -d --watch",
+    "serve": "webpack-dev-server",
+    "build": "webpack -p",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["Todo", "React", "webpack", "JSX", "es6", "babel"],
+  "author": "VJ",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "webpack": "^1.13.2"
+  },
+  "devDependencies": {
+    "css-loader": "^0.24.0",
+    "style-loader": "^0.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}

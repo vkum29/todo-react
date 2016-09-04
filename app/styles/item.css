@@ -1,0 +1,12 @@
+.todo-list__item {
+  background-color: #fefefe;
+  padding: .5rem;
+}
+
+.todo-list__item:not(:last-child) {
+  border-bottom: 1px dashed #222;
+}
+
+.todo-list__item:last-child {
+  border-radius: 0 0 10px 10px;
+}

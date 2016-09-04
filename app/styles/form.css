@@ -1,0 +1,51 @@
+.custom-form {
+  border: 1px solid #666;
+  max-width: 320px;
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 0 2px #222;
+  background-color: #fafafa;
+  margin: 0 auto;
+}
+
+.custom-form:not(:last-child) {
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+}
+
+.custom-form input {
+  font-family: cambria;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #222;
+  padding: .5rem .25rem;
+  font-size: 14px;
+  background-color: #f0f0f0;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.custom-form input:focus {
+  outline: none;
+  border-color: darkblue;
+  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+button {
+  font-family: cambria;
+  background-color: darkblue;
+  padding: .5rem 1rem;
+  color: white;
+  font-size: 14px;
+  border: 2px solid #fff;
+  opacity: .75;
+  cursor: pointer;
+}
+
+button:hover, button:active, button:focus {
+  outline: none;
+  opacity: 1;
+  border-color: #222;
+}

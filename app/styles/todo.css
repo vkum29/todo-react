@@ -1,0 +1,11 @@
+.todo-app {
+  padding: 1rem;
+}
+
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
