@@ -35,7 +35,7 @@
 
 button {
   font-family: cambria;
-  background-color: darkblue;
+  background: linear-gradient(#3f3fa7, darkblue);
   padding: .5rem 1rem;
   color: white;
   font-size: 14px;
@@ -47,5 +47,4 @@ button {
 button:hover, button:active, button:focus {
   outline: none;
   opacity: 1;
-  border-color: #222;
 }

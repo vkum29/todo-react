@@ -22,6 +22,7 @@ header {
   box-sizing: border-box;
   padding: .5rem .5rem 0 .5rem;
 }
+
 footer {
   border-top: 1px solid #222;
   box-sizing: border-box;
@@ -32,4 +33,16 @@ main {
   padding: .5rem .5rem;
   max-width: 640px;
   margin: 0 auto;
+}
+
+.content {
+  padding: 1rem;
+}
+
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
 }
