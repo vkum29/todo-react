@@ -1,0 +1,36 @@
+nav ul {
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+  margin: -2rem 0 0 0;
+}
+
+nav li {
+  display: inline-block;
+  padding: 0;
+}
+
+nav li:not(:first-child) {
+  border-left: 2px solid #fff;
+}
+
+nav li a {
+  padding: .5rem;
+  display: block;
+  color: #fff;
+  cursor: pointer;
+  opacity: .75;
+  background: linear-gradient(#3f3fa7, darkblue);
+}
+
+nav li a:not(.active):hover {
+  opacity: 1;
+  text-shadow: 0 0 2px #fff;
+}
+
+nav li .active {
+  background: linear-gradient(grey, #ccc);
+  color: #222;
+  text-decoration: none;
+  cursor: not-allowed;
+}
