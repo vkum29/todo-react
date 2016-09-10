@@ -33,8 +33,9 @@
   background-color: rgba(255, 255, 255, 0.75);
 }
 
-button {
+.btn {
   font-family: cambria;
+  background-color: darkblue;
   background: linear-gradient(#3f3fa7, darkblue);
   padding: .5rem 1rem;
   color: white;
@@ -44,7 +45,18 @@ button {
   cursor: pointer;
 }
 
-button:hover, button:active, button:focus {
+.btn:hover, .btn:active, .btn:focus {
   outline: none;
   opacity: 1;
+}
+
+
+.btn-danger {
+  background-color: darkred;
+  background: linear-gradient(red, darkred);
+}
+
+.btn-success {
+  background-color: darkgreen;
+  background: linear-gradient(green, darkgreen);
 }

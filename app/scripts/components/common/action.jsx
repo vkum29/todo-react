@@ -3,6 +3,7 @@ import React from 'react';
 export default class Action extends React.Component {
   constructor() {
     super();
+    this.action = this.action.bind(this);
     this.state = {
       addTodo: false
     }
@@ -16,16 +17,10 @@ export default class Action extends React.Component {
   }
 
   render() {
-    let AddButton = this.state.addTodo
-      ? 'hidden'
-      : 'visible';
-    let AddForm = this.state.addTodo
-      ? 'visible'
-      : 'hidden';
-
+    const classname = `btn btn-${this.props.classname ? this.props.classname : 'default'}`;
     return (
       <p>
-        <button onClick={this.action.bind(this)} type={this.props.type}>{this.props.text}</button>
+        <button className={classname} onClick={this.action} type={this.props.type} >{this.props.text}</button>
       </p>
     );
   }

@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 import Title from './title.jsx';
 import Text from '../common/text.jsx';
 
-import '../../styles/nav.css';
+import '../../../styles/nav.css';
 
 export default class Header extends React.Component {
   render() {
@@ -15,7 +15,7 @@ export default class Header extends React.Component {
         <nav>
           <ul>
             <li>
-              <Link to="/" activeClassName="active">App</Link> 
+              <Link to="/" activeClassName="active">App</Link>
             </li>
             <li>
               <Link to="about" activeClassName="active">About</Link>

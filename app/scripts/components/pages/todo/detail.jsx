@@ -1,18 +1,18 @@
 import React from 'react';
-import '../../../styles/todo.css';
+import '../../../../styles/todo.css';
 
 import Search from './search.jsx';
 import ListTodos from '../../common/lists.jsx';
 import Action from '../../common/action.jsx';
 import AddTodo from './addtodo.jsx';
 
-import MockTodoData from '../../../mocks/todos.jsx';
+import TodoStore from '../../../stores/todo.store.jsx';
 
 export default class Todo extends React.Component{
     constructor(){
         super();
         this.state = {
-          items : MockTodoData
+          items: TodoStore.getAllTodos()
         }
     }
 
@@ -21,9 +21,9 @@ export default class Todo extends React.Component{
         let item = items.filter((item, i) => {
           return item.id == this.props.params.id;
         });
-      
+
         let todo = item[0];
-      
+
         return (
             <section className='content'>
               <h2>{todo.title}</h2>
