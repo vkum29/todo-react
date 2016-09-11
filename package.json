@@ -5,7 +5,7 @@
   "main": "./app/script/app.jsx",
   "scripts": {
     "dev": "webpack -d --watch",
-    "serve": "webpack-dev-server",
+    "serve": "webpack -d --watch | webpack-dev-server",
     "build": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,7 +15,8 @@
     "webpack",
     "JSX",
     "es6",
-    "babel"
+    "babel",
+    "Flux"
   ],
   "author": "VJ",
   "license": "ISC",
@@ -27,7 +28,8 @@
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-router": "^2.7.0",
-    "webpack": "^1.13.2"
+    "webpack": "^1.13.2",
+    "flux": "^2.1.1"
   },
   "devDependencies": {
     "css-loader": "^0.24.0",

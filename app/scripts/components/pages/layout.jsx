@@ -11,7 +11,7 @@ export default class Layout extends React.Component{
       super();
       this.state = {
         title : 'Todo',
-        subtitle : 'React hands on application'
+        subtitle : 'React hands on'
       }
     }
 

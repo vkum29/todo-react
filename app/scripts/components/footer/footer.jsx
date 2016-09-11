@@ -5,7 +5,7 @@ export default class Footer extends React.Component {
   render() {
     return (
       <footer>
-        <Text text="&copy; Copyright 2016 by VJ@lEarn."/>
+        <Text text="Todo app with Flux pattern and React(v15.3.1)."/>
       </footer>
     );
   }
