@@ -1,29 +1,18 @@
 import React from 'react';
 import '../../../../styles/todo.css';
 
-import Search from './search.jsx';
-import ListTodos from '../../common/lists.jsx';
-import Action from '../../common/action.jsx';
-import AddTodo from './addtodo.jsx';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {SelectTodo, UnSelectTodo } from '../../../actions/todo.action.jsx';
 
-import TodoStore from '../../../stores/todo.store.jsx';
-
-export default class Todo extends React.Component{
-    constructor(){
-        super();
-        this.state = {
-          items: TodoStore.getAllTodos()
-        }
-    }
-
+class TodoDetails extends React.Component {
     render() {
-        let items = Object.assign([],this.state.items);
-        let item = items.filter((item, i) => {
-          return item.id == this.props.params.id;
-        });
+      let items = Object.assign([],this.props.items);
+      let item = items.filter((item, i) => {
+        return item.id == this.props.params.id;
+      });
 
-        let todo = item[0];
-
+      let todo = item[0];
         return (
             <section className='content'>
               <h2>{todo.title}</h2>
@@ -32,3 +21,17 @@ export default class Todo extends React.Component{
         );
     }
 }
+
+function MapStore(state) {
+  return {
+    items: state.todos
+  }
+}
+
+function BindActions(dispatch){
+  return bindActionCreators({
+    unSelectTodo: UnSelectTodo
+  }, dispatch)
+}
+
+export default connect(MapStore, BindActions)(TodoDetails);

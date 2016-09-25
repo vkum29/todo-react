@@ -16,7 +16,6 @@ export default class Layout extends React.Component{
     }
 
     navigate() {
-      console.log('navigate');
       this.props.history.replaceState(null, '/');
     }
 

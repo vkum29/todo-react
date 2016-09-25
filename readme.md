@@ -2,7 +2,9 @@
 
 - Webpack module bundler is used to resolve dependencies
 - Babel to convert REACT and ES6 code into browser compatible version and
-- Used Flux pattern to organize code
+- Used Redux pattern to organize code
+
+(Converted earlier done based on flux pattern)
 
 ## To run application
 
@@ -23,10 +25,8 @@
 - React component and styles resides in app/
 - jsx will be compiled into public/scripts/app.js
 - index.html is the main html file in root directory which is loaded when you run the application
-- Driving component is app/app.jsx which includes its dependencies including styles
+- Provider is app/app.jsx which binds stores to components
 
 ## App Snapshot
 
-<img src = './todo-react.png' width=250px/> 
-
-
+<img src = './todo-react.png' width=250px/>

@@ -6,100 +6,52 @@ import ListTodos from '../../common/lists.jsx';
 import Action from '../../common/action.jsx';
 import AddTodo from './addtodo.jsx';
 
-import * as TodoAction from '../../../actions/todo.action.jsx';
-import TodoStore from '../../../stores/todo.store.jsx';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {CompleteTodo, DeleteTodo, ShowAddNewTodo, CreateTodo, HideAddNewTodo } from '../../../actions/todo.action.jsx';
 
-export default class Todo extends React.Component {
+class Todo extends React.Component {
   constructor() {
     super();
-    console.log('initilaize Todo');
-
-    this.getAllTodos = this.getAllTodos.bind(this);
-    this.addTodo = this.addTodo.bind(this);
-    this.deleteTodo = this.deleteTodo.bind(this);
-    this.completeTodo = this.completeTodo.bind(this);
-    this.setSearchQuery = this.setSearchQuery.bind(this);
-    this.showAddTodoForm = this.showAddTodoForm.bind(this);
-
-    this.state = {
-      addTodo: false,
-      searchQuery: '',
-      items: TodoStore.getAllTodos()
-    };
+    this.showAddNewTodo = this.showAddNewTodo.bind(this);
   }
 
-  getAllTodos() {
-    console.log('getAllTodos');
-    this.setState({
-      addTodo: false,
-      searchQuery: '',
-      items: TodoStore.getAllTodos()
-    });
-  }
-
-  componentWillMount() {
-    console.log('componentWillMount');
-    TodoStore.on("change", this.getAllTodos);
-  }
-
-  componentWillUnMount() {
-    console.log('componentWillUnMount');
-    TodoStore.removeListener("change", this.getAllTodos);
-  }
-
-  filterResults(query) {
-    console.log('filterResults', query);
-    let items = this.state.items;
-    if (query) {
-      items = items.filter((item) => {
-        return item.title.includes(query);
-      });
-    }
-    return items;
-  }
-
-  addTodo(todo) {
-    console.log('addTodo', todo);
-    TodoAction.createTodo(todo);
-  }
-
-  deleteTodo(id) {
-    console.log('deleteTodo', id);
-    TodoAction.deleteTodo(id);
-  }
-
-  completeTodo(id) {
-    console.log('deleteTodo', id);
-    TodoAction.completeTodo(id);
-  }
-
-  showAddTodoForm() {
-    console.log('showAddTodoForm');
-    this.setState({
-      addTodo: true
-    });
-  }
-
-  setSearchQuery(query) {
-    console.log('setSearchQuery', query);
-    this.setState({
-      searchQuery: (query || '')
-    });
+  showAddNewTodo(e) {
+    this.props.ShowAddNewTodo(true);
   }
 
   render() {
-    const ITEMS = this.filterResults(this.state.searchQuery);
-    const ADD_TODO = [ < AddTodo key = "1" action = { this.addTodo } />];
+    const ADD_TODO = [ < AddTodo key = "1" action = { this.props.createTodo } hideForm = {this.props.HideAddNewTodo}/>];
     const LIST_TODO = [
-      <Search key = "1" filterItems = { this.setSearchQuery } query={ this.state.searchQuery }/>,
-      <ListTodos key = "2" items = { ITEMS } deleteTodo={ this.deleteTodo } completeTodo={this.completeTodo} />,
-      <Action key = "3" action = { this.showAddTodoForm } text = "Add Todo" type = "button" />
+      <Search key = "1" />,
+      <ListTodos key = "2" items = { this.props.items } deleteTodo={ this.props.deleteTodo } completeTodo={ this.props.completeTodo } />,
+      <Action key = "3" action = { this.showAddNewTodo } text = "Add Todo" type = "button" />
     ];
 
-    const VIEW = this.state.addTodo ? ADD_TODO : LIST_TODO;
+    const VIEW = this.props.addNewTodo ? ADD_TODO : LIST_TODO;
 
     return (
       <section className = 'content' > { VIEW } </section>
     );
   }
 }
+
+
+function MapStore(state){
+  return {
+    items: state.todos,
+    addNewTodo: state.addNewTodo
+  }
+}
+
+function BindActions(dispatch){
+  return bindActionCreators({
+    ShowAddNewTodo: ShowAddNewTodo,
+    HideAddNewTodo: HideAddNewTodo,
+    completeTodo: CompleteTodo,
+    deleteTodo: DeleteTodo,
+    createTodo: CreateTodo
+  }, dispatch)
+}
+
+export default connect(MapStore, BindActions)(Todo);

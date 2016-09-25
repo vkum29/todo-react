@@ -6,24 +6,19 @@ import Action from '../../common/action.jsx';
 
 export default class Todo extends React.Component {
   action(e) {
-    console.log('action');
     e.preventDefault();
     if (e.target.title.value && e.target.title.value.length) {
       let todo = {
         id: Date.now(),
         title: e.target.title.value,
-        desc: e.target.desc.value || ''
+        desc: e.target.desc.value || '',
+        complete: false
       };
 
       this.props.action(todo);
     } else {
-      this.props.action();
+      this.props.hideForm();
     }
-  }
-
-  dummyAction(e) {
-    console.log('dummyAction');
-    e.target.form.submit();
   }
 
   render() {
