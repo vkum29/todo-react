@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "css-loader": "^0.24.0",
+    "jest": "^15.1.1",
     "style-loader": "^0.13.1",
     "webpack-dev-server": "^1.14.1"
   }
