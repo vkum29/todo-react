@@ -12,8 +12,6 @@ import TodoStore from '../../../stores/todo.store.jsx';
 export default class Todo extends React.Component {
   constructor() {
     super();
-    console.log('initilaize Todo');
-
     this.getAllTodos = this.getAllTodos.bind(this);
     this.addTodo = this.addTodo.bind(this);
     this.deleteTodo = this.deleteTodo.bind(this);
@@ -29,7 +27,6 @@ export default class Todo extends React.Component {
   }
 
   getAllTodos() {
-    console.log('getAllTodos');
     this.setState({
       addTodo: false,
       searchQuery: '',
@@ -38,50 +35,42 @@ export default class Todo extends React.Component {
   }
 
   componentWillMount() {
-    console.log('componentWillMount');
     TodoStore.on("change", this.getAllTodos);
   }
 
   componentWillUnMount() {
-    console.log('componentWillUnMount');
     TodoStore.removeListener("change", this.getAllTodos);
   }
 
   filterResults(query) {
-    console.log('filterResults', query);
     let items = this.state.items;
     if (query) {
       items = items.filter((item) => {
-        return item.title.includes(query);
+        return item.title.toLowerCase().includes(query.toLowerCase());
       });
     }
     return items;
   }
 
   addTodo(todo) {
-    console.log('addTodo', todo);
     TodoAction.createTodo(todo);
   }
 
   deleteTodo(id) {
-    console.log('deleteTodo', id);
     TodoAction.deleteTodo(id);
   }
 
   completeTodo(id) {
-    console.log('deleteTodo', id);
     TodoAction.completeTodo(id);
   }
 
   showAddTodoForm() {
-    console.log('showAddTodoForm');
     this.setState({
       addTodo: true
     });
   }
 
   setSearchQuery(query) {
-    console.log('setSearchQuery', query);
     this.setState({
       searchQuery: (query || '')
     });

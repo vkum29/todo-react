@@ -4,9 +4,6 @@ export default class Action extends React.Component {
   constructor() {
     super();
     this.action = this.action.bind(this);
-    this.state = {
-      addTodo: false
-    }
   }
 
   action(e) {

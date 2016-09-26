@@ -11,7 +11,6 @@ class TodoStore extends EventEmitter {
   }
 
   handleAction(action) {
-    console.log("handleAction", action);
     switch(action.type) {
       case "CREATE_TODO": {
         this.createTodo(action);
@@ -36,7 +35,6 @@ class TodoStore extends EventEmitter {
   }
 
   createTodo({title, desc = ''}) {
-    console.log('createTodo', title, desc);
     const id = Date.now();
       if (title) {
         this.todos.push({
@@ -50,13 +48,11 @@ class TodoStore extends EventEmitter {
   }
 
   deleteTodo(id) {
-    console.log('deleteTodo',id);
     this.todos = this.todos.filter((item) => { return item.id !== id });
     this.emit("change");
   }
 
   completeTodo(id) {
-    console.log('completeTodo',id);
     this.todos.forEach((item) => {
       if (item.id === id) {
         item.complete = true;

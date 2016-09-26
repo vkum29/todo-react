@@ -4,9 +4,8 @@ import '../../../../styles/form.css';
 import TextField from '../../common/input.jsx';
 import Action from '../../common/action.jsx';
 
-export default class Todo extends React.Component {
+export default class CreateTodo extends React.Component {
   action(e) {
-    console.log('action');
     e.preventDefault();
     if (e.target.title.value && e.target.title.value.length) {
       let todo = {
@@ -19,11 +18,6 @@ export default class Todo extends React.Component {
     } else {
       this.props.action();
     }
-  }
-
-  dummyAction(e) {
-    console.log('dummyAction');
-    e.target.form.submit();
   }
 
   render() {
