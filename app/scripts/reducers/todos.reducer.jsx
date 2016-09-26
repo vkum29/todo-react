@@ -17,7 +17,7 @@ export default function TodosReducer(state= MockTodoData, action){
       });
       return state;
     case 'FILTER_TODO':
-      state = state.filter(todo => todo.title.toLowerCase().indexOf(action.payload) !== -1);
+      state = state.filter(todo => todo.title.toLowerCase().indexOf(action.payload.toLowerCase()) !== -1);
       return state;
     default :
       return state;

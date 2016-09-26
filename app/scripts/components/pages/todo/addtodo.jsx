@@ -4,7 +4,7 @@ import '../../../../styles/form.css';
 import TextField from '../../common/input.jsx';
 import Action from '../../common/action.jsx';
 
-export default class Todo extends React.Component {
+export default class CreateTodo extends React.Component {
   action(e) {
     e.preventDefault();
     if (e.target.title.value && e.target.title.value.length) {
